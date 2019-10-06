@@ -172,6 +172,11 @@ namespace Mackay_Nel_Task1
             temp += "Unit_Type: " + unit_types;
             return temp;
         }
+
+        internal void Combat(RougeWizardUnit closestR)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
