@@ -200,6 +200,84 @@ namespace Mackay_Nel_Task1
                             }
                         }
                     }
+
+                }
+                if (map.Units[i] is WizardUnit)
+                {
+                    WizardUnit wu = (WizardUnit)map.Units[i];
+                    if (wu.Health <= wu.MaxHealth * 0.25)//Moves away if unit is damaged 
+                    {
+                        wu.Move(r.Next(0, 4));
+                    }
+                    else
+                    {
+                        int shortest = 100;
+                        Unit closestR = wu;
+                        foreach (Unit u in map.Units)
+                        {
+                            if (u is WizardUnit)
+                            {
+                                WizardUnit otherWu = (WizardUnit)u;
+                                int distance = Math.Abs(wu.XPos - otherWu.XPos)
+                                    + Math.Abs(wu.YPos - otherWu.YPos);
+                                if (distance < shortest)
+                                {
+                                    shortest = distance;
+                                    closestR = otherWu;
+                                }
+                            }
+                        }
+                        int distanceTo = 0;
+                        if (distanceTo <= wu.AttackRange)
+                        {
+                            wu.IsAttacking = true;
+                            wu.Combat(closestR);
+                        }
+                        else
+                        {
+                            if (closestR is MeleeUnit)
+                            {
+                                MeleeUnit closestMMu = (MeleeUnit)closestR;
+                                if (wu.XPos > closestMMu.XPos)
+                                {
+                                    wu.Move(0);//North
+                                }
+                                else if (wu.XPos < closestMMu.XPos)
+                                {
+                                    wu.Move(2);//South
+                                }
+                                else if (wu.YPos > closestMMu.XPos)
+                                {
+                                    wu.Move(3);//West
+                                }
+                                else if (wu.YPos < closestMMu.XPos)
+                                {
+                                    wu.Move(1);//East
+                                }
+                            }
+                            else if (closestR is RangedUnit)
+                            {
+                                RangedUnit closestMMu = (RangedUnit)closestR;
+                                if (wu.XPos > closestMMu.XPos)
+                                {
+                                    wu.Move(0);//North
+                                }
+                                else if (wu.XPos < closestMMu.XPos)
+                                {
+                                    wu.Move(2);//South
+                                }
+                                else if (wu.YPos > closestMMu.XPos)
+                                {
+                                    wu.Move(3);//West
+                                }
+                                else if (wu.YPos < closestMMu.XPos)
+                                {
+                                    wu.Move(1);//East
+                                }
+                            }
+                        }
+                    }
+
                 }
             }
 
