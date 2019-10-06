@@ -67,7 +67,7 @@ namespace Mackay_Nel_Task1
                                                  5,
                                                  (i % 2 == 0 ? 1 : 0),
                                                  "R",
-                                                 "Wizard");//Task 2 Q)2.3 added unit types
+                                                 "Musketeer");//Task 2 Q)2.3 added unit types [Update]: For task 3 I changed the units from wizards to musketeers as wizards are now their own unit type.
                     units.Add(r);
                 }
 
@@ -95,31 +95,7 @@ namespace Mackay_Nel_Task1
                 }
             }
         }
-        //public void GenerateBuilding() //Makes Buildings
-        //{
-        //    for (int i = 0; i < numBuildings; i++)
-        //    {
-        //        if (rd.Next(0, 2) == 0)
-        //        {
-        //            ResourceBuilding a = new ResourceBuilding(rd.Next(0, 20),
-        //                                                      rd.Next(0, 20),
-        //                                                      500,
-        //                                                      (i % 2 == 0 ? 1 : 0),
-        //                                                      "[RS]");
-        //            buildings.Add(a);
-        //        }
-        //        else
-        //        {
-        //            FactoryBuilding f = new FactoryBuilding(rd.Next(0, 20),
-        //                                                      rd.Next(0, 20),
-        //                                                      500,
-        //                                                      (i % 2 == 0 ? 1 : 0),
-        //                                                      "[FS]");
-        //            buildings.Add(f);
-        //        }
-        //    }
-
-        //}
+        
 
         public void Display(GroupBox groupBox)
         {
