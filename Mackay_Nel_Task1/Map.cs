@@ -17,6 +17,7 @@ namespace Mackay_Nel_Task1
         Random rd = new Random();
         int numUnits = 0;
         int numBuildings = 0;//added for Task 2
+        int numWizards = 0; //Added for Task 3
         TextBox infoTxtBox = new TextBox();
         private int v;
 
@@ -70,7 +71,20 @@ namespace Mackay_Nel_Task1
                                                  "Musketeer");//Task 2 Q)2.3 added unit types [Update]: For task 3 I changed the units from wizards to musketeers as wizards are now their own unit type.
                     units.Add(r);
                 }
-                else
+                else if (rd.Next(0, 2) == 2)
+                {
+                    WizardUnit rw = new WizardUnit(rd.Next(0, 20),
+                                                rd.Next(0, 20),
+                                                100,
+                                                1,
+                                                20,
+                                                5,
+                                                (i % 2 == 0 ? 1 : 0),
+                                                "RW",
+                                                "RougeWizard");//Task 3: Added the Rouge wizard faction. 
+                    units.Add(rw);
+                }
+                else 
                 {
                     WizardUnit w = new WizardUnit(rd.Next(0, 20),
                                                  rd.Next(0, 20),
@@ -106,6 +120,8 @@ namespace Mackay_Nel_Task1
                     buildings.Add(f);
                 }
             }
+
+            
         }
         
 
@@ -160,9 +176,13 @@ namespace Mackay_Nel_Task1
                     {
                         b.ForeColor = Color.Red;
                     }
-                    else
+                    else if ( wu.Faction == 1)
                     {
                         b.ForeColor = Color.Green;
+                    }
+                    else if (wu.Faction == 2)
+                    {
+                        b.ForeColor = Color.Purple;
                     }
                     b.Click += Unit_Click;
                     groupBox.Controls.Add(b);
