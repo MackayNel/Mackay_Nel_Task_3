@@ -12,13 +12,13 @@ namespace Mackay_Nel_Task1
     [Serializable]
     public class Map
     {
-        List<NeutralFaction> wizards = new List<NeutralFaction>();
+        List<NeutralFaction> wizards = new List<NeutralFaction>();//Added For Task 3
         List<Building> buildings ;
         List<Unit> units = new List<Unit>();
         Random rd = new Random();
         int numUnits = 0;
         int numBuildings = 0;
-        int numWizards = 0; //Added for Task 3
+        int numWizards = 0; //Added for Task 3 
         TextBox infoTxtBox = new TextBox();
         private int v;
 
@@ -34,7 +34,7 @@ namespace Mackay_Nel_Task1
             set { buildings = value; }
         }
 
-        public List<NeutralFaction> Wizards
+        public List<NeutralFaction> Wizards //Added for Task 3 
         {
             get { return wizards; }
             set { wizards = value; }
@@ -45,7 +45,7 @@ namespace Mackay_Nel_Task1
             buildings = new List<Building>();
             numUnits = n;
             numBuildings = bu;
-            numWizards = wu;
+            numWizards = wu; //Added for Task 3 
             infoTxtBox = txt;
         }
 
@@ -93,6 +93,7 @@ namespace Mackay_Nel_Task1
                     units.Add(w);
                 }
             }
+            //[Task 3] Generates Neutral Wizzards in their own faction. 
             for (int q = 0; q < numWizards; q++)
             {
                 RougeWizardUnit wr = new RougeWizardUnit(rd.Next(0, 20),
@@ -102,7 +103,7 @@ namespace Mackay_Nel_Task1
                                                 20,
                                                 5,
                                                 (q % 2 == 0 ? 1 : 0),
-                                                "RW",
+                                                "W",
                                                 "Neutral_Wizard");//Task 3: Added the Neutral wizard. aka Rouge wizard as they are in their own faction.
                 wizards.Add(wr);
             }
@@ -175,7 +176,7 @@ namespace Mackay_Nel_Task1
                     groupBox.Controls.Add(b);
                 }
                 else
-                {
+                {//Displays Wizards
                     WizardUnit wu = (WizardUnit)u;
                     b.Size = new Size(20, 20);
                     b.Location = new Point(wu.XPos * 20, wu.YPos * 20);
@@ -193,6 +194,7 @@ namespace Mackay_Nel_Task1
                     groupBox.Controls.Add(b);
                 }
             }
+            //Displays Neutral Wizards
             foreach(RougeWizardUnit rw in wizards)
             {
                 Button wb = new Button();
@@ -202,7 +204,7 @@ namespace Mackay_Nel_Task1
                 wb.Text = Rw.Symbol;
                 wb.ForeColor = Color.Purple;
 
-                wb.Click += Unit_Click;
+                wb.Click += NeutralFaction_Click;
                 groupBox.Controls.Add(wb);
             }
 
@@ -290,7 +292,8 @@ namespace Mackay_Nel_Task1
 
             
         }
-        public void NeutralFaction_Click(object sender, EventArgs e)
+        //Displays Neutral Wizard Information
+        public void NeutralFaction_Click(Object sender, EventArgs e)
         {
             int x, y;
             Button wb = (Button)sender;
@@ -298,15 +301,19 @@ namespace Mackay_Nel_Task1
             y = wb.Location.Y / 20;
             foreach(NeutralFaction rw in wizards)
             {
-                RougeWizardUnit nw = (RougeWizardUnit)rw;
-                if (nw.XPos == x && nw.YPos == y)
+                if (rw is RougeWizardUnit)
                 {
-                    infoTxtBox.Text = "";
-                    infoTxtBox.Text = nw.ToString();
+                    RougeWizardUnit nw = (RougeWizardUnit)rw;
+                    if (nw.XPos == x && nw.YPos == y)
+                    {
+                        infoTxtBox.Text = "";
+                        infoTxtBox.Text = nw.ToString();
+                    }
                 }
+               
             }
         }
-        public void Building_Click(object sender, EventArgs e)
+        public void Building_Click(Object sender, EventArgs e)
         {
             int x, y;
             Button bb = (Button)sender;
