@@ -12,11 +12,11 @@ namespace Mackay_Nel_Task1
     [Serializable]
     public class Map
     {
-        List<Building> buildings ;//added for Task 2
+        List<Building> buildings ;
         List<Unit> units = new List<Unit>();
         Random rd = new Random();
         int numUnits = 0;
-        int numBuildings = 0;//added for Task 2
+        int numBuildings = 0;
         int numWizards = 0; //Added for Task 3
         TextBox infoTxtBox = new TextBox();
         private int v;
@@ -55,7 +55,7 @@ namespace Mackay_Nel_Task1
                                                 20,
                                                 (i % 2 == 0 ? 1 : 0),
                                                 "M",
-                                                "Knight");//Task 2 Q)2.3 added unit types
+                                                "Knight");
                     units.Add(m);
                 }
                 else if (rd.Next(0, 2) == 1) // Generate Ranged Unit
@@ -68,7 +68,7 @@ namespace Mackay_Nel_Task1
                                                  5,
                                                  (i % 2 == 0 ? 1 : 0),
                                                  "R",
-                                                 "Musketeer");//Task 2 Q)2.3 added unit types [Update]: For task 3 I changed the units from wizards to musketeers as wizards are now their own unit type.
+                                                 "Musketeer");// [Update]: For task 3 I changed the units from wizards to musketeers as wizards are now their own unit type.
                     units.Add(r);
                 }
                 else if (rd.Next(0, 2) == 2)
@@ -180,7 +180,7 @@ namespace Mackay_Nel_Task1
                     {
                         b.ForeColor = Color.Green;
                     }
-                    else if (wu.Faction == 2)
+                    else//Task 3, This should turn the Rouge Wizards Purple
                     {
                         b.ForeColor = Color.Purple;
                     }
