@@ -57,7 +57,7 @@ namespace Mackay_Nel_Task1
                                                 "Knight");//Task 2 Q)2.3 added unit types
                     units.Add(m);
                 }
-                else// Generate Ranged Unit
+                else if (rd.Next(0, 2) == 1) // Generate Ranged Unit
                 {
                     RangedUnit r = new RangedUnit(rd.Next(0, 20),
                                                  rd.Next(0, 20),
@@ -70,7 +70,19 @@ namespace Mackay_Nel_Task1
                                                  "Musketeer");//Task 2 Q)2.3 added unit types [Update]: For task 3 I changed the units from wizards to musketeers as wizards are now their own unit type.
                     units.Add(r);
                 }
-
+                else
+                {
+                    WizardUnit w = new WizardUnit(rd.Next(0, 20),
+                                                 rd.Next(0, 20),
+                                                 100,
+                                                 1,
+                                                 20,
+                                                 5,
+                                                 (i % 2 == 0 ? 1 : 0),
+                                                 "W",
+                                                 "Wizard");//Task 3: Added the wizard 
+                    units.Add(w);
+                }
             }
 
             for (int j = 0; j < numBuildings; j++)
