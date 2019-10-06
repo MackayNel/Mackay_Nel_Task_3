@@ -41,7 +41,6 @@ namespace Mackay_Nel_Task1
             infoTxtBox = txt;
         }
 
-
         public void Generate()
         {
             for(int i = 0; i < numUnits; i++)//Generate Melee Unit.
@@ -71,19 +70,7 @@ namespace Mackay_Nel_Task1
                                                  "Musketeer");// [Update]: For task 3 I changed the units from wizards to musketeers as wizards are now their own unit type.
                     units.Add(r);
                 }
-                else if (rd.Next(0, 2) == 2)
-                {
-                    WizardUnit rw = new WizardUnit(rd.Next(0, 20),
-                                                rd.Next(0, 20),
-                                                100,
-                                                1,
-                                                20,
-                                                5,
-                                                (i % 2 == 0 ? 1 : 0),
-                                                "RW",
-                                                "RougeWizard");//Task 3: Added the Rouge wizard faction. 
-                    units.Add(rw);
-                }
+              
                 else 
                 {
                     WizardUnit w = new WizardUnit(rd.Next(0, 20),
@@ -97,6 +84,19 @@ namespace Mackay_Nel_Task1
                                                  "Wizard");//Task 3: Added the wizard. 
                     units.Add(w);
                 }
+            }
+            for (int q = 0; q < numWizards; q++)
+            {
+                WizardUnit rw = new WizardUnit(rd.Next(0, 20),
+                                                rd.Next(0, 20),
+                                                100,
+                                                1,
+                                                20,
+                                                5,
+                                                (q % 2 == 0 ? 1 : 0),
+                                                "RW",
+                                                "Neutral_Wizard");//Task 3: Added the Neutral wizard. aka Rouge wizard as they are in their own faction.
+                units.Add(rw);
             }
 
             for (int j = 0; j < numBuildings; j++)
@@ -176,14 +176,11 @@ namespace Mackay_Nel_Task1
                     {
                         b.ForeColor = Color.Red;
                     }
-                    else if ( wu.Faction == 1)
+                    else
                     {
                         b.ForeColor = Color.Green;
                     }
-                    else//Task 3, This should turn the Rouge Wizards Purple
-                    {
-                        b.ForeColor = Color.Purple;
-                    }
+                   
                     b.Click += Unit_Click;
                     groupBox.Controls.Add(b);
                 }
