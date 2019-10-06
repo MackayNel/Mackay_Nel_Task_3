@@ -37,7 +37,7 @@ namespace Mackay_Nel_Task1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            engine = new GameEngine(20, 4, infoTxtBox, grpMap);
+            engine = new GameEngine(20, 4,10, infoTxtBox, grpMap);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -51,7 +51,8 @@ namespace Mackay_Nel_Task1
             //timer1.Enabled = false;
             int n = 40;
             int bu = 4;
-            Map map = new Map( n, bu , infoTxtBox);
+            int wu = 10;
+            Map map = new Map( n, bu ,wu, infoTxtBox);
             
             
 

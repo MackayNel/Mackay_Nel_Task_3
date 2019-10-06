@@ -20,10 +20,10 @@ namespace Mackay_Nel_Task1
             get { return round; }
         }
 
-        public GameEngine(int numUnits,int numBuildings, TextBox infoTxtBox, GroupBox gMap)
+        public GameEngine(int numUnits,int numBuildings,int numWizards, TextBox infoTxtBox, GroupBox gMap)
         {
             grpMap = gMap;
-            map = new Map(numUnits, numBuildings,infoTxtBox);
+            map = new Map(numUnits, numBuildings,numWizards, infoTxtBox);
             map.Generate();
            // map.GenerateBuilding();
             map.Display(grpMap);
