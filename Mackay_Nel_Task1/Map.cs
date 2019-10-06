@@ -185,6 +185,7 @@ namespace Mackay_Nel_Task1
                     groupBox.Controls.Add(b);
                 }
             }
+            
             foreach (Building d in buildings)
             {
                 Button bb = new Button();
