@@ -80,7 +80,7 @@ namespace Mackay_Nel_Task1
                                                  5,
                                                  (i % 2 == 0 ? 1 : 0),
                                                  "W",
-                                                 "Wizard");//Task 3: Added the wizard 
+                                                 "Wizard");//Task 3: Added the wizard. 
                     units.Add(w);
                 }
             }
