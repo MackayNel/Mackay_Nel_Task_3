@@ -133,7 +133,7 @@ namespace Mackay_Nel_Task1
                     b.Click += Unit_Click;
                     groupBox.Controls.Add(b);
                 }
-                else
+                else if( u is RangedUnit)
                 {
                     RangedUnit ru = (RangedUnit)u;
                     b.Size = new Size(20, 20);
@@ -150,7 +150,23 @@ namespace Mackay_Nel_Task1
                     b.Click += Unit_Click;
                     groupBox.Controls.Add(b);
                 }
-
+                else
+                {
+                    WizardUnit wu = (WizardUnit)u;
+                    b.Size = new Size(20, 20);
+                    b.Location = new Point(wu.XPos * 20, wu.YPos * 20);
+                    b.Text = wu.Symbol;
+                    if (wu.Faction == 0)
+                    {
+                        b.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        b.ForeColor = Color.Green;
+                    }
+                    b.Click += Unit_Click;
+                    groupBox.Controls.Add(b);
+                }
             }
             foreach (Building d in buildings)
             {
@@ -222,7 +238,15 @@ namespace Mackay_Nel_Task1
                         infoTxtBox.Text = mu.ToString();
                     }
                 }
-                
+                else if (u is WizardUnit)
+                {
+                    WizardUnit wu = (WizardUnit)u;
+                    if (wu.XPos == x && wu.YPos == y)
+                    {
+                        infoTxtBox.Text = "";
+                        infoTxtBox.Text = wu.ToString();
+                    }
+                }
             }
 
             

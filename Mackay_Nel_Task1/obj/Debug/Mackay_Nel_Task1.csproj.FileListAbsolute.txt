@@ -44,3 +44,13 @@ D:\Programs\Mackay_Nel_Task2\Mackay_Nel_Task_2\Mackay_Nel_Task1\obj\Debug\Mackay
 D:\Programs\Mackay_Nel_Task2\Mackay_Nel_Task_2\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.csproj.CoreCompileInputs.cache
 D:\Programs\Mackay_Nel_Task2\Mackay_Nel_Task_2\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.exe
 D:\Programs\Mackay_Nel_Task2\Mackay_Nel_Task_2\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.pdb
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\bin\Debug\Mackay_Nel_Task1.exe.config
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\bin\Debug\Mackay_Nel_Task1.exe
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\bin\Debug\Mackay_Nel_Task1.pdb
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.csprojAssemblyReference.cache
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.Form1.resources
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.Properties.Resources.resources
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.csproj.GenerateResource.cache
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.csproj.CoreCompileInputs.cache
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.exe
+D:\Programs\Mackay_Nel_Task3\Mackay_Nel_Task_3\Mackay_Nel_Task1\obj\Debug\Mackay_Nel_Task1.pdb
