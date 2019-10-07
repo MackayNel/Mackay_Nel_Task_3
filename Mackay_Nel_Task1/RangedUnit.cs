@@ -100,7 +100,7 @@ namespace Mackay_Nel_Task1
             symbol = "x";
             IsDead = true;
         }
-
+        //Added the Wizard and Neutral faction Wizards to the combat method for Task 3
         public override void Combat(Unit attacker)
         {
             if (attacker is MeleeUnit)
@@ -111,6 +111,16 @@ namespace Mackay_Nel_Task1
             {
                 RangedUnit ru = (RangedUnit)attacker;
                 Health = Health - (ru.Attack - ru.AttackRange);
+            }
+            else if (attacker is WizardUnit)
+            {
+                WizardUnit wu = (WizardUnit)attacker;
+                Health = Health - (wu.Attack - wu.AttackRange);
+            }
+            else if (attacker is RougeWizardUnit)
+            {
+                RougeWizardUnit wu = (RougeWizardUnit)attacker;
+                Health = Health - (wu.Attack - wu.AttackRange);
             }
             if (Health <= 0)
             {
