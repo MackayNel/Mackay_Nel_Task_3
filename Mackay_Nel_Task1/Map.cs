@@ -83,7 +83,7 @@ namespace Mackay_Nel_Task1
                                                  "Wizard");//Task 3: Added the wizard. 
                     units.Add(w);
                 }
-                else 
+                else //[Task 3] Generates Neutral Wizzards in their own faction. 
                 {
                     RougeWizardUnit wr = new RougeWizardUnit(rd.Next(0, 20),
                                                     rd.Next(0, 20),
@@ -97,7 +97,7 @@ namespace Mackay_Nel_Task1
                     units.Add(wr);
                 }
             }
-            //[Task 3] Generates Neutral Wizzards in their own faction. 
+            
             for (int j = 0; j < numBuildings; j++)
             {
                 if (rd.Next(0, 2) == 0)

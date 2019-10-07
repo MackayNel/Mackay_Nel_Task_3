@@ -117,11 +117,6 @@ namespace Mackay_Nel_Task1
             }
         }
 
-        public static explicit operator    WizardUnit(MeleeUnit v)
-        {
-            throw new NotImplementedException();
-        }
-
         public override bool InRange(Unit other)
         {
             int distance = 0;

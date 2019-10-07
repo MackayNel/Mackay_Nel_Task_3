@@ -407,6 +407,18 @@ namespace Mackay_Nel_Task1
                 RangedUnit end = (RangedUnit)b;
                 distance = Math.Abs(start.XPos - end.XPos) + Math.Abs(start.YPos - end.YPos);
             }
+            else if (a is RougeWizardUnit && b is RangedUnit)
+            {
+                RougeWizardUnit start = (RougeWizardUnit)a;
+                RangedUnit end = (RangedUnit)b;
+                distance = Math.Abs(start.XPos - end.XPos) + Math.Abs(start.YPos - end.YPos);
+            }
+            else if (a is RougeWizardUnit && b is MeleeUnit)
+            {
+                RougeWizardUnit start = (RougeWizardUnit)a;
+                MeleeUnit end = (MeleeUnit)b;
+                distance = Math.Abs(start.XPos - end.XPos) + Math.Abs(start.YPos - end.YPos);
+            }
             return distance;
         }
     }

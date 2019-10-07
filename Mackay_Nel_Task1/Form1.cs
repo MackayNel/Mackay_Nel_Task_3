@@ -60,8 +60,8 @@ namespace Mackay_Nel_Task1
             try
             {
                 using (fs)
-                    bf.Serialize(fs,map.Units);
-                    bf.Serialize(fs,map.Buildings);
+                    bf.Serialize(fs,map);
+                    
             }
             catch (Exception r)
             {
