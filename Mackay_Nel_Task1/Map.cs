@@ -12,7 +12,6 @@ namespace Mackay_Nel_Task1
     [Serializable]
     public class Map
     {
-        List<NeutralFaction> wizards = new List<NeutralFaction>();//Added For Task 3
         List<Building> buildings ;
         List<Unit> units = new List<Unit>();
         Random rd = new Random();
@@ -34,12 +33,6 @@ namespace Mackay_Nel_Task1
             set { buildings = value; }
         }
 
-        public List<NeutralFaction> Wizards //Added for Task 3 
-        {
-            get { return wizards; }
-            set { wizards = value; }
-        }
-
         public Map(int n, int bu,int wu, TextBox txt)
         {
             buildings = new List<Building>();
@@ -53,7 +46,7 @@ namespace Mackay_Nel_Task1
         {
             for(int i = 0; i < numUnits; i++)//Generate Melee Unit.
             {
-                if(rd.Next(0,2)== 0)
+                if(rd.Next(0,4)== 0)
                 {
                     MeleeUnit m = new MeleeUnit(rd.Next(0, 20),
                                                 rd.Next(0, 20),
@@ -65,7 +58,7 @@ namespace Mackay_Nel_Task1
                                                 "Knight");
                     units.Add(m);
                 }
-                else if (rd.Next(0, 2) == 1) // Generate Ranged Unit
+                else if (rd.Next(0, 4) == 1) // Generate Ranged Unit
                 {
                     RangedUnit r = new RangedUnit(rd.Next(0, 20),
                                                  rd.Next(0, 20),
@@ -79,7 +72,7 @@ namespace Mackay_Nel_Task1
                     units.Add(r);
                 }
               
-                else 
+                else if (rd.Next(0, 4) == 2)
                 {
                     WizardUnit w = new WizardUnit(rd.Next(0, 20),
                                                  rd.Next(0, 20),
@@ -92,21 +85,22 @@ namespace Mackay_Nel_Task1
                                                  "Wizard");//Task 3: Added the wizard. 
                     units.Add(w);
                 }
+                else 
+                {
+                    RougeWizardUnit wr = new RougeWizardUnit(rd.Next(0, 20),
+                                                    rd.Next(0, 20),
+                                                    100,
+                                                    1,
+                                                    20,
+                                                    5,
+                                                    (i % 2 == 0 ? 1 : 0),
+                                                    "W",
+                                                    "Neutral_Wizard");//Task 3: Added the Neutral wizard. aka Rouge wizard as they are in their own faction.
+                    units.Add(wr);
+                }
             }
             //[Task 3] Generates Neutral Wizzards in their own faction. 
-            for (int q = 0; q < numWizards; q++)
-            {
-                RougeWizardUnit wr = new RougeWizardUnit(rd.Next(0, 20),
-                                                rd.Next(0, 20),
-                                                100,
-                                                1,
-                                                20,
-                                                5,
-                                                (q % 2 == 0 ? 1 : 0),
-                                                "W",
-                                                "Neutral_Wizard");//Task 3: Added the Neutral wizard. aka Rouge wizard as they are in their own faction.
-                wizards.Add(wr);
-            }
+            
 
             for (int j = 0; j < numBuildings; j++)
             {
@@ -175,7 +169,7 @@ namespace Mackay_Nel_Task1
                     b.Click += Unit_Click;
                     groupBox.Controls.Add(b);
                 }
-                else
+                else if(u is WizardUnit)
                 {//Displays Wizards
                     WizardUnit wu = (WizardUnit)u;
                     b.Size = new Size(20, 20);
@@ -193,20 +187,21 @@ namespace Mackay_Nel_Task1
                     b.Click += Unit_Click;
                     groupBox.Controls.Add(b);
                 }
-            }
-            //Displays Neutral Wizards
-            foreach(RougeWizardUnit rw in wizards)
-            {
-                Button wb = new Button();
-                RougeWizardUnit Rw = (RougeWizardUnit)rw;
-                wb.Size = new Size(20, 20);
-                wb.Location = new Point(Rw.XPos * 20, Rw.YPos * 20);
-                wb.Text = Rw.Symbol;
-                wb.ForeColor = Color.Purple;
+                else
+                {//Displays Neutral Wizards
+                    Button wb = new Button();
+                    RougeWizardUnit Rw = (RougeWizardUnit)u;
+                    wb.Size = new Size(20, 20);
+                    wb.Location = new Point(Rw.XPos * 20, Rw.YPos * 20);
+                    wb.Text = Rw.Symbol;
+                    wb.ForeColor = Color.Purple;
 
-                wb.Click += NeutralFaction_Click;
-                groupBox.Controls.Add(wb);
+                    wb.Click += NeutralFaction_Click;
+                    groupBox.Controls.Add(wb);
+                }
             }
+            
+            
 
             foreach (Building d in buildings)
             {
@@ -299,7 +294,7 @@ namespace Mackay_Nel_Task1
             Button wb = (Button)sender;
             x = wb.Location.X / 20;
             y = wb.Location.Y / 20;
-            foreach(NeutralFaction rw in wizards)
+            foreach(Unit rw in units)
             {
                 if (rw is RougeWizardUnit)
                 {

@@ -279,7 +279,6 @@ namespace Mackay_Nel_Task1
                     }
 
                 }
-                
             }
 
             //

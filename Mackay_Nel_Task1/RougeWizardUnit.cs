@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mackay_Nel_Task1
 {
-    class RougeWizardUnit : NeutralFaction
+    class RougeWizardUnit : Unit
     {
         //IsDead field used for Death Method.
 

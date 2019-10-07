@@ -169,9 +169,6 @@ namespace Mackay_Nel_Task1
             return temp;
         }
 
-        public abstract explicit operator MeleeUnit(RougeWizardUnit v)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
