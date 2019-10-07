@@ -26,7 +26,6 @@ namespace Mackay_Nel_Task1
             get { return units; }
             set { units = value; }
         }
-
         public List<Building> Buildings
         {
             get { return buildings; }
@@ -71,7 +70,6 @@ namespace Mackay_Nel_Task1
                                                  "Musketeer");// [Update]: For task 3 I changed the units from wizards to musketeers as wizards are now their own unit type.
                     units.Add(r);
                 }
-              
                 else if (rd.Next(0, 4) == 2)
                 {
                     WizardUnit w = new WizardUnit(rd.Next(0, 20),
@@ -100,8 +98,6 @@ namespace Mackay_Nel_Task1
                 }
             }
             //[Task 3] Generates Neutral Wizzards in their own faction. 
-            
-
             for (int j = 0; j < numBuildings; j++)
             {
                 if (rd.Next(0, 2) == 0)
@@ -123,11 +119,7 @@ namespace Mackay_Nel_Task1
                     buildings.Add(f);
                 }
             }
-
-            
         }
-        
-
         public void Display(GroupBox groupBox)
         {
             //GenerateBuilding();
@@ -188,7 +180,8 @@ namespace Mackay_Nel_Task1
                     groupBox.Controls.Add(b);
                 }
                 else
-                {//Displays Neutral Wizards
+                {
+                    //Displays Neutral Wizards.
                     Button wb = new Button();
                     RougeWizardUnit Rw = (RougeWizardUnit)u;
                     wb.Size = new Size(20, 20);
@@ -200,9 +193,6 @@ namespace Mackay_Nel_Task1
                     groupBox.Controls.Add(wb);
                 }
             }
-            
-            
-
             foreach (Building d in buildings)
             {
                 Button bb = new Button();
@@ -240,9 +230,7 @@ namespace Mackay_Nel_Task1
                     bb.Click += Building_Click;
                     groupBox.Controls.Add(bb);
                 }
-
             }
-            
         }
 
         public void Unit_Click(Object sender, EventArgs e)
@@ -282,10 +270,7 @@ namespace Mackay_Nel_Task1
                         infoTxtBox.Text = wu.ToString();
                     }
                 }
-               
             }
-
-            
         }
         //Displays Neutral Wizard Information
         public void NeutralFaction_Click(Object sender, EventArgs e)
@@ -305,7 +290,6 @@ namespace Mackay_Nel_Task1
                         infoTxtBox.Text = nw.ToString();
                     }
                 }
-               
             }
         }
         public void Building_Click(Object sender, EventArgs e)
@@ -336,7 +320,6 @@ namespace Mackay_Nel_Task1
                     }
                 }
             }
-
         }
     }
 }

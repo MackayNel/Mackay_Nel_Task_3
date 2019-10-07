@@ -279,6 +279,84 @@ namespace Mackay_Nel_Task1
                     }
 
                 }
+                //Added Neutral Wizard Faction[Task 3]
+                if (map.Units[i] is RougeWizardUnit)
+                {
+                    RougeWizardUnit rwu = (RougeWizardUnit)map.Units[i];
+                    if (rwu.Health <= rwu.MaxHealth * 0.25)//Moves away if unit is damaged 
+                    {
+                        rwu.Move(r.Next(0, 4));
+                    }
+                    else
+                    {
+                        int shortest = 100;
+                        Unit closestR = rwu;
+                        foreach (Unit u in map.Units)
+                        {
+                            if (u is WizardUnit)
+                            {
+                                WizardUnit otherWu = (WizardUnit)u;
+                                int distance = Math.Abs(rwu.XPos - otherWu.XPos)
+                                    + Math.Abs(rwu.YPos - otherWu.YPos);
+                                if (distance < shortest)
+                                {
+                                    shortest = distance;
+                                    closestR = otherWu;
+                                }
+                            }
+                        }
+                        int distanceTo = 0;
+                        if (distanceTo <= rwu.AttackRange)
+                        {
+                            rwu.IsAttacking = true;
+                            rwu.Combat(closestR);
+                        }
+                        else
+                        {
+                            if (closestR is MeleeUnit)
+                            {
+                                MeleeUnit closestMMu = (MeleeUnit)closestR;
+                                if (rwu.XPos > closestMMu.XPos)
+                                {
+                                    rwu.Move(0);//North
+                                }
+                                else if (rwu.XPos < closestMMu.XPos)
+                                {
+                                   rwu.Move(2);//South
+                                }
+                                else if (rwu.YPos > closestMMu.XPos)
+                                {
+                                    rwu.Move(3);//West
+                                }
+                                else if (rwu.YPos < closestMMu.XPos)
+                                {
+                                    rwu.Move(1);//East
+                                }
+                            }
+                            else if (closestR is RangedUnit)
+                            {
+                                RangedUnit closestMMu = (RangedUnit)closestR;
+                                if (rwu.XPos > closestMMu.XPos)
+                                {
+                                    rwu.Move(0);//North
+                                }
+                                else if (rwu.XPos < closestMMu.XPos)
+                                {
+                                    rwu.Move(2);//South
+                                }
+                                else if (rwu.YPos > closestMMu.XPos)
+                                {
+                                    rwu.Move(3);//West
+                                }
+                                else if (rwu.YPos < closestMMu.XPos)
+                                {
+                                    rwu.Move(1);//East
+                                }
+                            }
+                        }
+                    }
+
+                }
             }
 
             //
@@ -287,6 +365,8 @@ namespace Mackay_Nel_Task1
             round++;
 
         }
+
+
         public int DistanceTo(Unit a, Unit b)
         {
             int distance = 0;

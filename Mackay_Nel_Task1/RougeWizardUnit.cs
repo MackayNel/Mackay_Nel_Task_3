@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mackay_Nel_Task1
 {
+    //This class is for the Neutral Wizard faction and is added for task 3.
     class RougeWizardUnit : Unit
     {
         //IsDead field used for Death Method.
