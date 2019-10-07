@@ -130,7 +130,7 @@ namespace Mackay_Nel_Task1
                         1,
                         10, 
                         1,
-                        "m", "knight");
+                        "M", "knight");
                     unit = mu;
                 }
                 else
@@ -142,7 +142,7 @@ namespace Mackay_Nel_Task1
                         5,
                         3, 
                         1,
-                        "r", "Archer");
+                        "R", "Archer");
                     unit = ru;
                 }
                 return unit;

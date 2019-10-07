@@ -282,7 +282,9 @@ namespace Mackay_Nel_Task1
                 //Added Neutral Wizard Faction[Task 3]
                 if (map.Units[i] is RougeWizardUnit)
                 {
+
                     RougeWizardUnit rwu = (RougeWizardUnit)map.Units[i];
+                    rwu.Health = 30;
                     if (rwu.Health <= rwu.MaxHealth * 0.25)//Moves away if unit is damaged 
                     {
                         rwu.Move(r.Next(0, 4));

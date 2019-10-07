@@ -12,6 +12,7 @@ namespace Mackay_Nel_Task1
     [Serializable]
     public class Map
     {
+         
         List<Building> buildings ;
         List<Unit> units = new List<Unit>();
         Random rd = new Random();
